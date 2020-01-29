@@ -6,8 +6,8 @@ build those containers.
 Ideally, you'd want to keep these definition files updated so that lab members can
 re-build containers as needed.
 
-### TO-DO
-[ ] Put built containers on a shared/known path on Wolverine.
+## Locate Singularity images
 
-### Thanks to
-Peter Orchard (@porchard)
+Pre-built Singularity images are located at `/lab/data/sw/containers/`.
+
+Thanks to Peter Orchard (@porchard).
