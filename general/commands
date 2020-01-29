@@ -1,0 +1,4 @@
+sudo singularity build general.simg Singularity
+cat Singularity | perl -pe 's/(^\t+)/$1# /; s/# #chmod/chmod/' > Singularity.ignore
+sudo singularity build general.ignore.simg Singularity.ignore
+rm -rf Singularity.ignore general.ignore.simg 
