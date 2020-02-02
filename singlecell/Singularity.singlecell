@@ -1,9 +1,11 @@
-BootStrap: shub
-From: raivivek/containers:base
+BootStrap: library
+From: raivivek/default/bioinformatics:latest
 IncludeCmd: yes
 
 
 %post
+    export PATH=/opt/conda/bin:$PATH
+
     conda install --yes         \
       -c defaults               \
       -c bioconda               \
@@ -28,6 +30,14 @@ IncludeCmd: yes
     pip install -e CellBender
 
     conda clean --all
+
+
+%environment
+    unset CONDA_DEFAULT_ENV
+    export ANACONDA_HOME=/opt/conda
+    export PICARD_JAR=$(find /opt/conda/share | grep picard.jar)
+    export QORTS_JAR=$(find /opt/conda/share | grep QoRTs.jar)
+    export LC_ALL=C
 
 
 %labels
