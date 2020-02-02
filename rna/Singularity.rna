@@ -1,0 +1,24 @@
+BootStrap: shub
+From: raivivek/containers:base
+IncludeCmd: yes
+
+
+%post
+    conda install --yes         \
+      -c defaults               \
+      -c bioconda               \
+      -c conda-forge            \
+      salmon                    \
+      bowtie2                   \
+      stringtie                 \
+      umi_tools                 \
+      bioconductor-tximport     \
+      bioconductor-deseq2       \
+      bioconductor-edger
+
+    conda clean --all
+
+
+%labels
+    Author vivekrai@umich.edu
+    Version v0.0.1

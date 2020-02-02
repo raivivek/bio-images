@@ -1,0 +1,35 @@
+BootStrap: shub
+From: raivivek/containers:base
+IncludeCmd: yes
+
+
+%post
+    conda install --yes         \
+      -c defaults               \
+      -c bioconda               \
+      -c conda-forge            \
+      -c pytorch                \
+      bioconductor-cicero       \
+      bioconductor-biocsingular \
+      pytables                  \
+      pytorch                   \
+      torchvision               \
+      r-seurat=2
+
+    # LIGER
+    Rscript -e "devtools::install_url('https://cran.r-project.org/src/contrib/Archive/RANN.L1/RANN.L1_2.5.2.tar.gz')"
+    Rscript -e "devtools::install_github('MacoskoLab/liger')"
+
+    # Harmony
+    Rscript -e "devtools::install_github('immunogenomics/harmony')"
+
+    # CellBender
+    git clone https://github.com/broadinstitute/CellBender.git
+    pip install -e CellBender
+
+    conda clean --all
+
+
+%labels
+    Author vivekrai@umich.edu
+    Version v0.0.1

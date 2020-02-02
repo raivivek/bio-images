@@ -29,8 +29,10 @@ IncludeCmd: yes
       bamutil                   \
       sra-tools                 \
       cutadapt                  \
+      trim-galore               \
       multiqc                   \
       ataqv                     \
+      fastx-toolkit             \
       subread                   \
       ucsc-bedclip=377          \
       ucsc-bedgraphtobigwig=377 \
@@ -41,7 +43,9 @@ IncludeCmd: yes
       pybedtools                \
       r-devtools                \
       r-optparse                \
-      r-tidyverse
+      r-tidyverse               \
+      r-glue                    \
+      bioconductor-genomicranges
 
     conda clean --all
 
