@@ -54,6 +54,7 @@ IncludeCmd: yes
     unset CONDA_DEFAULT_ENV
     export ANACONDA_HOME=/opt/conda
     export PICARD_JAR=$(find /opt/conda/share | grep picard.jar)
+    export QORTS_JAR=$(find /opt/conda/share | grep QoRTs.jar)
     export LC_ALL=C
 
 %labels
