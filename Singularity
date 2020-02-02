@@ -32,7 +32,6 @@ IncludeCmd: yes
       trim-galore               \
       multiqc                   \
       ataqv                     \
-      fastx-toolkit             \
       subread                   \
       ucsc-bedclip=377          \
       ucsc-bedgraphtobigwig=377 \
