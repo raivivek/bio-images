@@ -1,5 +1,5 @@
 BootStrap: library
-From: raivivek/default/bioinformatics:latest
+From: raivivek/default/bio-images:latest
 IncludeCmd: yes
 
 
@@ -10,7 +10,10 @@ IncludeCmd: yes
       -c defaults               \
       -c bioconda               \
       -c conda-forge            \
+      star                      \
+      qorts                     \
       salmon                    \
+      picard                    \
       bowtie2                   \
       stringtie                 \
       umi_tools                 \

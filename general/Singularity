@@ -1,0 +1,48 @@
+BootStrap: docker
+From: continuumio/miniconda3:latest
+IncludeCmd: yes
+
+%post
+    umask 0022
+    apt-get -qq update && apt-get -qq -y dist-upgrade
+
+    export PATH=/opt/conda/bin:$PATH
+
+    mkdir -p /sw
+    mkdir -p /scratch
+    mkdir -p /gpfs
+
+    conda install --yes         \
+      -c defaults               \
+      -c bioconda               \
+      -c conda-forge            \
+      python=3.6                \
+      samtools                  \
+      bedtools                  \
+      bamutil                   \
+      fastx_toolkit             \
+      fastqc                    \
+      sra-tools                 \
+      subread                   \
+      ucsc-bedclip=377          \
+      ucsc-bedsort=377          \
+      pysam                     \
+      biopython                 \
+      pybedtools                \
+      r-devtools                \
+      r-optparse                \
+      r-tidyverse               \
+      r-glue                    \
+      bioconductor-genomicranges
+
+    conda clean --all
+
+
+%environment
+    unset CONDA_DEFAULT_ENV
+    export ANACONDA_HOME=/opt/conda
+    export LC_ALL=C
+
+%labels
+    Author vivekrai@umich.edu
+    Version v0.0.1

@@ -1,5 +1,5 @@
 BootStrap: library
-From: raivivek/default/bioinformatics:latest
+From: raivivek/default/bio-images:latest
 IncludeCmd: yes
 
 
@@ -10,13 +10,14 @@ IncludeCmd: yes
       -c defaults               \
       -c bioconda               \
       -c conda-forge            \
-      -c pytorch                \
+      pytables                  \
       bioconductor-cicero       \
       bioconductor-biocsingular \
-      pytables                  \
-      pytorch                   \
-      torchvision               \
       r-seurat=2
+
+    conda install -c pytorch    \
+      pytorch                   \
+      torchvision 
 
     # LIGER
     Rscript -e "devtools::install_url('https://cran.r-project.org/src/contrib/Archive/RANN.L1/RANN.L1_2.5.2.tar.gz')"
