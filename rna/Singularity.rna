@@ -1,5 +1,5 @@
 BootStrap: library
-From: raivivek/default/bio-images:latest
+From: raivivek/default/bio-images:core
 IncludeCmd: yes
 
 
