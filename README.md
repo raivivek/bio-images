@@ -7,20 +7,31 @@ The containers are automatically built after commit and are available for downlo
 
 ## Building
 
-The base bioinformatics container can be downloaded using:
+The base bioinformatics container is published to sylabs registry and can be pulled using:
 
 ```
-singularity pull library://raivivek/bio-images:latest
+singularity pull library://raivivek/default/bio-images:latest
 ```
 
-If you wish to downloaded images with a few extra tools for RNA-seq analysis or
-Single-cell analysis, run the following:
+If instead you wish to add additional options/tools to the base image, use the following
+in your Singularity definition file:
+
+```
+BootStrap: library
+From: raivivek/default/bio-images:latest
+IncludeCmd: yes
+```
+
+The repository uses this formula to build analysis specific images as well. For instance,
+you can download ATAC-seq, RNA-seq, and Single-cell analysis relevant images as following:
+
+```
+singularity pull shub://raivivek/bio-images:atac
+```
 
 ```
 singularity pull shub://raivivek/bio-images:rna
 ```
-
-or,
 
 ```
 singularity pull shub://raivivek/bio-images:singlecell
