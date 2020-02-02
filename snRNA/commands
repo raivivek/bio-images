@@ -1,4 +1,0 @@
-sudo singularity build snRNA.simg Singularity
-cat Singularity | perl -pe 's/(^\t+)/$1# /; s/# #chmod/chmod/' > Singularity.ignore
-sudo singularity build snRNA.ignore.simg Singularity.ignore
-rm -rf Singularity.ignore snRNA.ignore.simg 
