@@ -6,18 +6,19 @@ IncludeCmd: yes
 %post
     export PATH=/opt/conda/bin:$PATH
 
-    conda install --yes         \
-      -c defaults               \
-      -c bioconda               \
-      -c conda-forge            \
-      pytables                  \
-      bioconductor-cicero       \
-      bioconductor-biocsingular \
-      r-seurat=2
+    conda config --set channel_priority strict
 
-    conda install -c pytorch    \
-      pytorch                   \
-      torchvision 
+    conda install --yes         \
+      -c conda-forge            \
+      -c bioconda               \
+      -c letaylor               \
+      pytables                  \
+      bioconductor-biocsingular \
+      bioconductor-cicero       \
+      r-seurat=2                \
+      r-harmony
+
+    conda install -c pytorch pytorch torchvision 
 
     # LIGER
     Rscript -e "devtools::install_url('https://cran.r-project.org/src/contrib/Archive/RANN.L1/RANN.L1_2.5.2.tar.gz')"

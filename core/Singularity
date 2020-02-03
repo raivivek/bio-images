@@ -12,10 +12,12 @@ IncludeCmd: yes
     mkdir -p /scratch
     mkdir -p /gpfs
 
+    conda config --set channel_priority strict
+
     conda install --yes         \
-      -c defaults               \
-      -c bioconda               \
       -c conda-forge            \
+      -c bioconda               \
+      -c anaconda               \
       python=3.6                \
       samtools                  \
       bedtools                  \
@@ -33,6 +35,7 @@ IncludeCmd: yes
       r-optparse                \
       r-tidyverse               \
       r-glue                    \
+      bioconductor-garfield     \
       bioconductor-genomicranges
 
     conda clean --all

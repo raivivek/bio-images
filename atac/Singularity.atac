@@ -2,20 +2,15 @@ BootStrap: library
 From: raivivek/default/bio-images:core
 IncludeCmd: yes
 
-%post
-    umask 0022
-    apt-get update && apt-get -y dist-upgrade
 
+%post
     export PATH=/opt/conda/bin:$PATH
 
-    mkdir -p /sw
-    mkdir -p /scratch
-    mkdir -p /gpfs
+    conda config --set channel_priority strict
 
     conda install --yes         \
-      -c defaults               \
-      -c bioconda               \
       -c conda-forge            \
+      -c bioconda               \
       bwa                       \
       macs2                     \
       picard                    \
