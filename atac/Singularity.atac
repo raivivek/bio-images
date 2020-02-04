@@ -6,8 +6,6 @@ IncludeCmd: yes
 %post
     export PATH=/opt/conda/bin:$PATH
 
-    conda config --set channel_priority strict
-
     conda install --yes         \
       -c conda-forge            \
       -c bioconda               \
