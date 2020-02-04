@@ -24,6 +24,7 @@ IncludeCmd: yes
       bamutil                   \
       fastx_toolkit             \
       fastqc                    \
+      fgwas                     \
       sra-tools                 \
       subread                   \
       ucsc-bedclip=377          \
