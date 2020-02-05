@@ -1,3 +1,4 @@
 *.simg
 *.sif
 nohup.out
+*.log

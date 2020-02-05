@@ -22,6 +22,7 @@ IncludeCmd: yes
       samtools                  \
       bedtools                  \
       bamutil                   \
+      demuxlet                  \
       fastx_toolkit             \
       fastqc                    \
       fgwas                     \
