@@ -10,24 +10,17 @@ IncludeCmd: yes
       -c conda-forge            \
       -c bioconda               \
       -c letaylor               \
-      pytables                  \
       bioconductor-biocsingular \
       bioconductor-cicero       \
       r-seurat=2                \
+      r-liger                   \
       r-harmony
 
     conda install -c pytorch pytorch torchvision 
 
-    # LIGER
-    Rscript -e "devtools::install_url('https://cran.r-project.org/src/contrib/Archive/RANN.L1/RANN.L1_2.5.2.tar.gz')"
-    Rscript -e "devtools::install_github('MacoskoLab/liger')"
-
-    # Harmony
-    Rscript -e "devtools::install_github('immunogenomics/harmony')"
-
     # CellBender
     git clone https://github.com/broadinstitute/CellBender.git
-    pip install -e CellBender
+    pip install -e CellBender && rm -rf CellBender
 
     conda clean --all
 
