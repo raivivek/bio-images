@@ -12,33 +12,35 @@ IncludeCmd: yes
     mkdir -p /scratch
     mkdir -p /gpfs
 
-    conda config --set channel_priority strict
+    conda config --set safety_checks disabled
 
-    conda install --yes         \
-      -c conda-forge            \
-      -c bioconda               \
-      -c anaconda               \
-      python=3.6                \
-      samtools                  \
-      bedtools                  \
-      bamutil                   \
-      demuxlet                  \
-      fastx_toolkit             \
-      fastqc                    \
-      fgwas                     \
-      sra-tools                 \
-      subread                   \
-      ucsc-bedclip=377          \
-      ucsc-bedsort=377          \
-      pysam                     \
-      biopython                 \
-      pybedtools                \
-      r-devtools                \
-      r-optparse                \
-      r-tidyverse               \
-      r-glue                    \
-      bioconductor-garfield     \
-      bioconductor-genomicranges
+    conda install --yes          \
+      -c conda-forge             \
+      -c bioconda                \
+      python=3.7                 \
+      r-base=3.6                 \
+      r-essentials               \
+      bedtools >=2.27            \
+      bamutil=1.0                \
+      bioconductor-garfield      \
+      bioconductor-genomicranges \
+      deeptools                  \
+      demuxlet=1.0               \
+      fastx_toolkit              \
+      fastqc >=0.10              \
+      fgwas=0.3.6                \
+      pysam >=0.15               \
+      biopython                  \
+      pybedtools                 \
+      r-devtools                 \
+      r-optparse                 \
+      r-glue                     \
+      r-ggseqlogo                \
+      sra-tools >=2.10           \
+      subread >=1.6.4            \
+      samtools >=1.9             \
+      ucsc-bedclip=377           \
+      ucsc-bedsort=377
 
     conda clean --all
 
