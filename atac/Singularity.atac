@@ -9,17 +9,18 @@ IncludeCmd: yes
     conda install --yes         \
       -c conda-forge            \
       -c bioconda               \
-      ataqv=1.1                 \
-      bwa=0.7                   \
-      cutadapt=2.8              \
-      idr=2.0                   \
-      macs2=2.2.6               \
-      multiqc=1.8               \
-      picard=2.21               \
-      subread=2.0               \
-      trim-galore=0.6           \
-      ucsc-bedgraphtobigwig=377 \
-      ucsc-fetchchromsizes=377
+      -c defaults 		\
+      ataqv>=1.0                 \
+      bwa>=0.7                   \
+      cutadapt>=2.8              \
+      idr>=2.0                   \
+      fgwas>=0.3.6 		 \
+      macs2>=2.2.6               \
+      multiqc>=1.8               \
+      picard>=2.21               \
+      subread>=2.0               \
+      trim-galore>=0.6           \
+      bioconductor-garfield
 
     conda clean --all
 

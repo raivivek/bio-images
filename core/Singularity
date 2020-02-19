@@ -4,7 +4,7 @@ IncludeCmd: yes
 
 %post
     umask 0022
-    apt-get -qq update && apt-get -qq -y dist-upgrade
+    apt-get -qq update && apt-get -qq -y upgrade
 
     export PATH=/opt/conda/bin:$PATH
 
@@ -13,34 +13,30 @@ IncludeCmd: yes
     mkdir -p /gpfs
 
     conda config --set safety_checks disabled
+    conda config --set channel_priority strict
 
-    conda install --yes          \
-      -c conda-forge             \
-      -c bioconda                \
-      python=3.7                 \
-      r-base=3.6                 \
-      r-essentials               \
-      bedtools >=2.27            \
-      bamutil=1.0                \
-      bioconductor-garfield      \
-      bioconductor-genomicranges \
-      deeptools                  \
-      demuxlet=1.0               \
-      fastx_toolkit              \
-      fastqc >=0.10              \
-      fgwas=0.3.6                \
-      pysam >=0.15               \
-      biopython                  \
-      pybedtools                 \
+    conda install -y             \
+      -c conda-forge \
+      -c bioconda \
+      -c defaults \
+      python>=3.7 \
+      r-base>=3.6             \
+      r-essentials>=3.6               \
       r-devtools                 \
-      r-optparse                 \
-      r-glue                     \
-      r-ggseqlogo                \
-      sra-tools >=2.10           \
-      subread >=1.6.4            \
-      samtools >=1.9             \
-      ucsc-bedclip=377           \
-      ucsc-bedsort=377
+      r-optparse>=1.6.2            \
+      r-glue \
+      bedtools>=2.27.1           \
+      fastqc>=0.10 \
+      bamutil>=1.0.14 \
+      biopython \
+      pybedtools \
+      fastx_toolkit>=0.0.14              \
+      pysam>=0.15.4 \
+      sra-tools>=2.8.1 \
+      samtools>=1.9  \
+      plink>=1.8 \
+      bcftools>=1.8 \
+      bioconductor-genomicranges=1.34  
 
     conda clean --all
 

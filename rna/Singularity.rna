@@ -2,22 +2,27 @@ BootStrap: library
 From: raivivek/default/bio-images:core
 IncludeCmd: yes
 
-
 %post
     export PATH=/opt/conda/bin:$PATH
 
+    mkdir -p /sw
+    mkdir -p /scratch
+    mkdir -p /gpfs
+
     conda config --set safety_checks disabled
 
-    conda install --yes         \
-      -c conda-forge            \
-      -c bioconda               \
-      picard=2.21               \
-      qorts=1.3                 \
-      salmon=1.1                \
-      star=2.7                  \
-      stringtie=2.1             \
-      umi_tools=1.0
-      #bioconductor-deseq2=1.26 \
+    conda install -y             \
+      -c conda-forge \
+      -c bioconda                \
+      salmon>=1.1                \
+      star>=2.7.3a               \
+      stringtie>=2.1               \
+      bioconductor-deseq2>=1.22  \
+      subread>=2.0 \
+      qorts>=1.3.0              \
+      rseqc>=3.0 \
+      qualimap>=2.2 \
+      umi_tools>=1.0.1
 
     conda clean --all
 
@@ -25,7 +30,6 @@ IncludeCmd: yes
 %environment
     unset CONDA_DEFAULT_ENV
     export ANACONDA_HOME=/opt/conda
-    export PICARD_JAR=$(find /opt/conda/share | grep picard.jar)
     export QORTS_JAR=$(find /opt/conda/share | grep QoRTs.jar)
     export LC_ALL=C
 
