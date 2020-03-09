@@ -13,32 +13,37 @@ IncludeCmd: yes
     mkdir -p /gpfs
 
     conda config --set safety_checks disabled
-    conda config --set channel_priority strict
+    conda install -c conda-forge mamba
 
-    conda install -y             \
+    mamba install -y             \
       -c conda-forge \
       -c bioconda \
       -c defaults \
       python>=3.7 \
       r-base>=3.6             \
+      snakemake \
+      nextflow \
       r-essentials>=3.6               \
       r-devtools                 \
       r-optparse>=1.6.2            \
       r-glue \
       bedtools>=2.27.1           \
       fastqc>=0.10 \
-      bamutil>=1.0.14 \
+      bamutil=1.0.* \
       biopython \
+      deeptools  \
       pybedtools \
       fastx_toolkit>=0.0.14              \
-      pysam>=0.15.4 \
+      pysam>=0.15 \
       sra-tools>=2.8.1 \
       samtools>=1.9  \
       plink>=1.8 \
       bcftools>=1.8 \
-      bioconductor-genomicranges=1.34  
+      bioconductor-genomicranges=1.34   \
+      ucsc-bedsort=377 \
+      ucsc-bedclip=377 
 
-    conda clean --all
+    mamba clean --all
 
 
 %environment
@@ -48,4 +53,4 @@ IncludeCmd: yes
 
 %labels
     Author vivekrai@umich.edu
-    Version v0.0.1
+    Version v0.0.2

@@ -2,16 +2,15 @@ BootStrap: library
 From: raivivek/default/bio-images:core
 IncludeCmd: yes
 
-
 %post
     export PATH=/opt/conda/bin:$PATH
 
-    conda install --yes         \
+    mamba install --yes         \
       -c conda-forge            \
       -c bioconda               \
       -c defaults 		\
-      ataqv>=1.0                 \
-      bwa>=0.7                   \
+      ataqv==1.1.1               \
+      bwa==0.7.17                \
       cutadapt>=2.8              \
       idr>=2.0                   \
       fgwas>=0.3.6 		 \
@@ -22,8 +21,7 @@ IncludeCmd: yes
       trim-galore>=0.6           \
       bioconductor-garfield
 
-    conda clean --all
-
+    mamba clean --all
 
 %environment
     unset CONDA_DEFAULT_ENV
@@ -33,4 +31,5 @@ IncludeCmd: yes
 
 %labels
     Author vivekrai@umich.edu
-    Version v0.0.1
+    Descrption ATAC-seq analysis
+    Version v0.0.2

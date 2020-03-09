@@ -2,26 +2,12 @@ BootStrap: library
 From: raivivek/default/bio-images:core
 IncludeCmd: yes
 
-
 %post
     export PATH=/opt/conda/bin:$PATH
-    export ANACONDA_HOME=/opt/conda
 
-    conda config --set safety_checks disabled
-
-    conda install --yes -c conda-forge -c bioconda \
-    r-seurat \
-    bioconductor-cicero
-
-
-    conda install -c pytorch pytorch torchvision 
-
-    # CellBender
-    git clone https://github.com/broadinstitute/CellBender.git
-    pip install -e CellBender && rm -rf CellBender
-
-    conda clean --all
-
+    mamba install --yes -c conda-forge -c bioconda r-seurat r-liger bioconductor-cicero
+    mamba install -c pytorch pytorch torchvision 
+    mamba clean --all
 
 %environment
     unset CONDA_DEFAULT_ENV
@@ -30,7 +16,7 @@ IncludeCmd: yes
     export QORTS_JAR=$(find /opt/conda/share | grep QoRTs.jar)
     export LC_ALL=C
 
-
 %labels
     Author vivekrai@umich.edu
-    Version v0.0.1
+    Description Single-cell analysis
+    Version v0.0.2

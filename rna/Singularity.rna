@@ -5,26 +5,21 @@ IncludeCmd: yes
 %post
     export PATH=/opt/conda/bin:$PATH
 
-    mkdir -p /sw
-    mkdir -p /scratch
-    mkdir -p /gpfs
-
-    conda config --set safety_checks disabled
-
-    conda install -y             \
+    mamba install -y             \
       -c conda-forge \
       -c bioconda                \
       salmon>=1.1                \
-      star>=2.7.3a               \
+      star==2.7.3a               \
       stringtie>=2.1               \
       bioconductor-deseq2>=1.22  \
       subread>=2.0 \
       qorts>=1.3.0              \
       rseqc>=3.0 \
       qualimap>=2.2 \
-      umi_tools>=1.0.1
+      umi_tools>=1.0.1 \
+      r-txrevise
 
-    conda clean --all
+    mamba clean --all
 
 
 %environment
@@ -36,4 +31,5 @@ IncludeCmd: yes
 
 %labels
     Author vivekrai@umich.edu
-    Version v0.0.1
+    Description RNA-seq analysis
+    Version v0.0.2
